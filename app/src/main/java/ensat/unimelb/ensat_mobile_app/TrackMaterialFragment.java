@@ -11,9 +11,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.easypost.EasyPost;
@@ -46,13 +48,13 @@ public class TrackMaterialFragment extends Fragment {
     private String mParam2;
 
     private EditText textTrackingNo;
-    private EditText textCarrier;
+  //  private EditText textCarrier;
     private TextView lblMessageText;
     private TextView lblTrackStatusText;
     private TextView lblSigned;
     private TextView lblWeight;
     private LinearLayout trackDetailLayout;
-
+    private Spinner spinnerCarrier;
     private OnFragmentInteractionListener mListener;
 
     /**
@@ -85,6 +87,7 @@ public class TrackMaterialFragment extends Fragment {
         }
 
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -98,7 +101,7 @@ public class TrackMaterialFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_track_material, container, false);
 
         textTrackingNo = (EditText) view.findViewById(R.id.textTrackingNo);
-        textCarrier = (EditText) view.findViewById(R.id.textCarrier);
+      //  textCarrier = (EditText) view.findViewById(R.id.textCarrier);
 
         lblMessageText = (TextView) view.findViewById(R.id.lblMessageText);
         lblTrackStatusText = (TextView) view.findViewById(R.id.lblTrackStatusText);
@@ -107,8 +110,15 @@ public class TrackMaterialFragment extends Fragment {
 
         trackDetailLayout =  (LinearLayout) view.findViewById(R.id.trackDetailLayout);
 
-        Button button = (Button) view.findViewById(R.id.btnTrack);
+        spinnerCarrier = (Spinner)view.findViewById(R.id.spinnerCarrier);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.carrier_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinnerCarrier.setAdapter(adapter);
 
+        Button button = (Button) view.findViewById(R.id.btnTrack);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +130,7 @@ public class TrackMaterialFragment extends Fragment {
 
                     params.put("tracking_code", textTrackingNo.getText());
 
-                    params.put("carrier", textCarrier.getText());
+                    params.put("carrier", spinnerCarrier.getSelectedItem().toString());// textCarrier.getText());
 
                     Tracker tracker = Tracker.create(params);
                     System.out.println("succ");

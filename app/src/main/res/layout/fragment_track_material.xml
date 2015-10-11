@@ -47,26 +47,25 @@
         android:theme="@style/labelTrack"
         android:layout_below= "@+id/sp2" />
 
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/textCarrier"
-        android:layout_toRightOf="@+id/lblCarrier"
-        android:text="FedEx"
-        android:layout_below="@+id/lblTrackNo"/>
-
     <Spinner
         android:id="@+id/spinnerCarrier"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textCarrier"/>
+        android:layout_toRightOf="@+id/lblCarrier"
+        android:layout_below="@+id/sp2"/>
+
+    <Space
+        android:id= "@+id/sp7"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_below="@+id/lblCarrier" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/easyTrack"
         android:id="@+id/btnTrack"
-        android:layout_below="@+id/textCarrier"
+        android:layout_below="@+id/sp7"
         android:textStyle="bold"
         android:textColor="@color/app_theme"
         android:textSize="18dp"/>
@@ -82,7 +81,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btnClear"
         android:id="@+id/btnClear"
-        android:layout_below="@+id/textCarrier"
+        android:layout_below="@+id/sp7"
         android:textStyle="bold"
         android:textColor="@color/app_theme"
         android:textSize="18dp"
