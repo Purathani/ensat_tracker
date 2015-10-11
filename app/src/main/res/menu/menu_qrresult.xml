@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ensat.unimelb.ensat_mobile_app.QRResultActivity">
+
+    <item
+        android:id="@+id/receive"
+        android:title="Receive"/>
+
+    <item
+        android:id="@+id/selectAll"
+        android:title="Select All"/>
+
+    <item
+        android:id="@+id/goHome"
+        android:title="Back"/>
+
+</menu>

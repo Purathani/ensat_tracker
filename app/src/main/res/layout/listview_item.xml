@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?android:attr/activatedBackgroundIndicator" >
+
+    <TextView
+        android:id="@+id/ensatIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ensatIdLabel"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:id="@+id/textViewEnsatId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ensatIdLabel" />
+
+
+    <Space
+        android:id= "@+id/sp1"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_toRightOf="@+id/textViewEnsatId" />
+
+    <TextView
+        android:id="@+id/bioIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/sp1"
+        android:text="@string/bioIdLabel"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:id="@+id/textViewBioId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/bioIdLabel"/>
+
+    <Space
+        android:id= "@+id/sp2"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_toRightOf="@+id/textViewBioId" />
+
+    <TextView
+        android:id="@+id/transferGroupIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/sp2"
+        android:text="@string/transfer_id"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:id="@+id/textViewTransferGroupId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/transferGroupIdLabel"/>
+
+
+    <TextView
+        android:id="@+id/materialLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ensatIdLabel"
+        android:text="@string/materialLabel"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:id="@+id/textViewMaterial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewEnsatId"
+        android:layout_toRightOf="@+id/materialLabel"/>
+
+    <Space
+        android:id= "@+id/sp3"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_toRightOf="@+id/textViewMaterial" />
+
+    <TextView
+        android:id="@+id/materialDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewBioId"
+        android:layout_toRightOf="@+id/sp3"
+        android:text="@string/materialDatelabel"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:id="@+id/textViewMaterialDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transferGroupIdLabel"
+        android:layout_toRightOf="@+id/materialDateLabel"/>
+
+    <TextView
+        android:id="@+id/centerIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialLabel"
+        android:text="@string/centerIdLabel"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:id="@+id/textViewCenterId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewMaterial"
+        android:layout_toRightOf="@+id/centerIdLabel"/>
+
+    <Space
+        android:id= "@+id/sp4"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_toRightOf="@+id/textViewCenterId" />
+
+    <TextView
+        android:id="@+id/desCenterIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialDateLabel"
+        android:text="@string/desCenterIdLabel"
+        android:theme="@style/labelText"
+        android:layout_toRightOf="@+id/sp4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/desCenterIdLabel"
+        android:layout_below="@+id/textViewMaterialDate"
+        android:id="@+id/textViewDestinationCenterId"/>
+
+    <TextView
+        android:id="@+id/statusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/desCenterIdLabel"
+        android:text="@string/statusLabel"
+        android:theme="@style/labelText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/statusLabel"
+        android:id="@+id/textViewStatus"
+        android:layout_below="@+id/textViewDestinationCenterId" />
+
+    <Space
+        android:id= "@+id/sp5"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_toRightOf="@+id/textViewStatus" />
+
+    <TextView
+        android:id="@+id/transferDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/desCenterIdLabel"
+        android:layout_toRightOf="@+id/sp5"
+        android:text="@string/transferDateLabel"
+        android:theme="@style/labelText"/>
+
+    <Space
+        android:id= "@+id/sp6"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_below="@+id/statusLabel" />
+
+    <TextView
+        android:id="@+id/textViewTransferDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDestinationCenterId"
+        android:layout_toRightOf="@+id/transferDateLabel"/>
+
+    <View android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/accent_material_light"
+        android:layout_below="@+id/sp6"/>
+</RelativeLayout>

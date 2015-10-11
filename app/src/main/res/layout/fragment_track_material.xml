@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?android:attr/activatedBackgroundIndicator" >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView android:id="@+id/lblHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/desc_track_material"
+        android:theme="@style/headingText" />
+
+    <Space
+        android:id= "@+id/sp1"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_below="@+id/lblHeading" />
+
+    <TextView
+        android:id="@+id/lblTrackNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trackingNo"
+        android:theme="@style/labelTrack"
+        android:layout_below="@+id/sp1" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTrackingNo"
+        android:layout_toRightOf="@+id/lblTrackNo"
+        android:text=""
+        android:layout_below="@+id/lblHeading"/>
+
+    <Space
+        android:id= "@+id/sp2"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_below="@+id/lblTrackNo" />
+
+    <TextView
+        android:id="@+id/lblCarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carrier"
+        android:theme="@style/labelTrack"
+        android:layout_below= "@+id/sp2" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textCarrier"
+        android:layout_toRightOf="@+id/lblCarrier"
+        android:text=""
+        android:layout_below="@+id/lblTrackNo"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/easyTrack"
+        android:id="@+id/btnTrack"
+        android:layout_below="@+id/textCarrier"
+        android:textStyle="bold"
+        android:textColor="@color/app_theme"
+        android:textSize="18dp"/>
+
+</RelativeLayout>
