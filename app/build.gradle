@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile files('libs/mysql-connector-java-3.0.17-ga-bin.jar')
     compile files('libs/easypost-java-2.1.4.jar')
+    compile files('libs/gson-2.2.4.jar')
 }

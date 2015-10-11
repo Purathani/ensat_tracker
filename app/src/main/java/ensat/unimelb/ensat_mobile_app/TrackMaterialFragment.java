@@ -4,15 +4,19 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.easypost.EasyPost;
 import com.easypost.exception.EasyPostException;
 import com.easypost.model.Tracker;
 
@@ -43,6 +47,11 @@ public class TrackMaterialFragment extends Fragment {
 
     private EditText textTrackingNo;
     private EditText textCarrier;
+    private TextView lblMessageText;
+    private TextView lblTrackStatusText;
+    private TextView lblSigned;
+    private TextView lblWeight;
+    private LinearLayout trackDetailLayout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -70,6 +79,11 @@ public class TrackMaterialFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -86,6 +100,12 @@ public class TrackMaterialFragment extends Fragment {
         textTrackingNo = (EditText) view.findViewById(R.id.textTrackingNo);
         textCarrier = (EditText) view.findViewById(R.id.textCarrier);
 
+        lblMessageText = (TextView) view.findViewById(R.id.lblMessageText);
+        lblTrackStatusText = (TextView) view.findViewById(R.id.lblTrackStatusText);
+        lblWeight = (TextView) view.findViewById(R.id.lblWeightText);
+        lblSigned = (TextView) view.findViewById(R.id.lblSignedText);
+
+        trackDetailLayout =  (LinearLayout) view.findViewById(R.id.trackDetailLayout);
 
         Button button = (Button) view.findViewById(R.id.btnTrack);
 
@@ -94,13 +114,18 @@ public class TrackMaterialFragment extends Fragment {
             public void onClick(View v) {
                 try {
 
+                    EasyPost.apiKey = "cueqNZUb3ldeWTNX7MU3Mel8UXtaAMUi";
+
                     Map<String, Object> params = new HashMap<String, Object>();
 
-                    params.put("tracking_code",textTrackingNo.getText());
+                    params.put("tracking_code", textTrackingNo.getText());
 
                     params.put("carrier", textCarrier.getText());
 
                     Tracker tracker = Tracker.create(params);
+                    System.out.println("succ");
+
+                    LoadTrackingResults(tracker);
 
                 } catch (ActivityNotFoundException anfe) {
 
@@ -113,6 +138,16 @@ public class TrackMaterialFragment extends Fragment {
         return view;
 
     }
+
+    public  void LoadTrackingResults(Tracker tracker)
+    {
+        trackDetailLayout.setVisibility(View.VISIBLE);
+        lblMessageText.setText(tracker.getEstDeliveryDate().toString());
+        lblTrackStatusText.setText(tracker.getStatus());
+        lblWeight.setText(Float.toString(tracker.getWeight()));
+        lblSigned.setText(tracker.getSignedBy());
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

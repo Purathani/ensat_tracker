@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textTrackingNo"
         android:layout_toRightOf="@+id/lblTrackNo"
-        android:text=""
+        android:text="EZ4000000004"
         android:layout_below="@+id/lblHeading"/>
 
     <Space
@@ -52,8 +52,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/textCarrier"
         android:layout_toRightOf="@+id/lblCarrier"
-        android:text=""
+        android:text="FedEx"
         android:layout_below="@+id/lblTrackNo"/>
+
+    <Spinner
+        android:id="@+id/spinnerCarrier"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textCarrier"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -64,5 +70,111 @@
         android:textStyle="bold"
         android:textColor="@color/app_theme"
         android:textSize="18dp"/>
+
+    <Space
+        android:id= "@+id/sp6"
+        android:layout_width= "@dimen/space_width"
+        android:layout_height="@dimen/space_width"
+        android:layout_toRightOf="@+id/btnTrack" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnClear"
+        android:id="@+id/btnClear"
+        android:layout_below="@+id/textCarrier"
+        android:textStyle="bold"
+        android:textColor="@color/app_theme"
+        android:textSize="18dp"
+        android:layout_toRightOf="@+id/sp6"
+        />
+
+    <LinearLayout
+        android:id="@+id/trackDetailLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnTrack"
+        android:layout_toRightOf="@+id/sp2"
+        android:layout_toEndOf="@+id/sp2"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/lblEstDeliveryDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblEstDeliveryDate"
+            android:theme="@style/labelTrack" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblMessageText"
+            android:layout_toRightOf="@+id/lblMessage"/>
+
+        <Space
+            android:id= "@+id/sp3"
+            android:layout_width= "@dimen/space_width"
+            android:layout_height="@dimen/space_width"
+            android:layout_below="@+id/lblMessage" />
+
+        <TextView
+            android:id="@+id/lblTrackStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblTrackStatus"
+            android:theme="@style/labelTrack"
+            android:layout_below= "@+id/sp3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblTrackStatusText"
+            android:layout_toRightOf="@+id/lblTrackStatus"
+            android:layout_below="@+id/lblMessage"/>
+
+        <Space
+            android:id= "@+id/sp4"
+            android:layout_width= "@dimen/space_width"
+            android:layout_height="@dimen/space_width"
+            android:layout_below="@+id/lblMessage" />
+
+        <TextView
+            android:id="@+id/lblWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblWeight"
+            android:theme="@style/labelTrack"
+            android:layout_below= "@+id/sp4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblWeightText"
+            android:layout_toRightOf="@+id/lblWeight"
+            android:layout_below="@+id/lblTrackStatus"/>
+
+        <Space
+            android:id= "@+id/sp5"
+            android:layout_width= "@dimen/space_width"
+            android:layout_height="@dimen/space_width"
+            android:layout_below="@+id/lblWeight" />
+
+        <TextView
+            android:id="@+id/lblSigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblSigned"
+            android:theme="@style/labelTrack"
+            android:layout_below= "@+id/sp45" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblSignedText"
+            android:layout_toRightOf="@+id/lblSigned"
+            android:layout_below="@+id/lblWeight"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

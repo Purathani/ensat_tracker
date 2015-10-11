@@ -39,6 +39,22 @@
 
     <string name="trackingNo">"Parcel Tracking Number: "</string>
     <string name="carrier">"Carrier Name: "</string>
-    <string name="easyTrack">"Easy Track: "</string>
+    <string name="easyTrack">" Easy Track "</string>
+    <string name="lblTrackStatus">"Status: "</string>
+    <string name="lblEstDeliveryDate">"Estimated Delivery Date: "</string>
+    <string name="lblSigned">"Signed By: "</string>
+    <string name="lblWeight">"Weight: "</string>
+    <string name="btnClear">" CLEAR "</string>
+
+    <string-array name="carrier_array">
+        <item>FedEx</item>
+        <item>UPS</item>
+        <item>DHL</item>
+        <item>LSO</item>
+        <item>GLS</item>
+        <item>Australia POST</item>
+        <item>fastway</item>
+        <item>PNL</item>
+    </string-array>
 
 </resources>
