@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ensat.unimelb.ensat_mobile_app.data.AppConstants;
 import ensat.unimelb.ensat_mobile_app.data.BioMaterialInfoTransfer;
 import ensat.unimelb.ensat_mobile_app.data.BioMaterialTransferDetail;
 import ensat.unimelb.ensat_mobile_app.data.WebserviceUtil;
@@ -58,7 +59,7 @@ public class QRResultActivity extends AppCompatActivity {
         //  txtResult.setText(group_id);
 
         WebserviceUtil wUtil = new WebserviceUtil();
-        String jsonStr = wUtil.requestContent("http://192.168.1.103:8080/ENSAT_WS/api/accbiomaterialaliquotstransfer" + "/" + group_id);
+        String jsonStr = wUtil.requestContent(AppConstants.WEBSERVICE_URL + "/" + group_id);
         bioInfoList = parseJSONString(jsonStr);
 
         // Locate the ListView in listview_main.xml
@@ -100,7 +101,7 @@ public class QRResultActivity extends AppCompatActivity {
                                 BioMaterialTransferDetail selecteditem = listviewadapter.getItem(selected.keyAt(i));
                                 // Remove selected items following the ids
                                 receivedId = selecteditem.getAcc_biomaterial_transfer_id();
-                                String responseReceive = wUtil.requestContentPut("http://192.168.1.103:8080/ENSAT_WS/api/accbiomaterialaliquotstransfer" + "/" + receivedId);
+                                String responseReceive = wUtil.requestContentPut("http://10.9.138.169:8080/ENSAT_WS/api/accbiomaterialaliquotstransfer" + "/" + receivedId);
                                 listviewadapter.remove(selecteditem);
                             }
                         }

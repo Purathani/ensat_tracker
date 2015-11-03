@@ -22,7 +22,7 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="desc_about_us">Welcome to Biomaterial Information Tracking Application.</string>
+    <string name="desc_about_us">Welcome to Biomaterial Information Tracker.</string>
     <string name="desc_track_material">Tracking Parcel - EasyPost API </string>
     <string name="title_activity_qrresult">QRResultActivity</string>
 
@@ -45,6 +45,7 @@
     <string name="lblSigned">"Signed By: "</string>
     <string name="lblWeight">"Weight: "</string>
     <string name="btnClear">" CLEAR "</string>
+
 
     <string-array name="carrier_array">
         <item>FedEx</item>
