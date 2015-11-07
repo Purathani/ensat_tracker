@@ -15,10 +15,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Created by purat on 28/09/2015.
+ * Created by purathani on 28/09/2015.
  */
 public class WebserviceUtil {
 
+    // To call GET webservice method
     public String requestContent(String url) {
         HttpClient httpclient = new DefaultHttpClient();
         String result = null;
@@ -52,6 +53,7 @@ public class WebserviceUtil {
         return result;
     }
 
+    // To call POST webservice method
     public String requestContentPut(String url) {
         HttpClient httpclient = new DefaultHttpClient();
         String result = null;
@@ -85,6 +87,7 @@ public class WebserviceUtil {
         return result;
     }
 
+    // Converting inputstream to String
     public String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();

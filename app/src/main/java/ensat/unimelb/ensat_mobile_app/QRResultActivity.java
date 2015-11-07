@@ -58,6 +58,7 @@ public class QRResultActivity extends AppCompatActivity {
         //  String format = getIntent().getStringExtra("SCAN_RESULT_FORMAT");
         //  txtResult.setText(group_id);
 
+        // Get biomaterial information by scanning QR code for the scanned transfer_group_id
         WebserviceUtil wUtil = new WebserviceUtil();
         String jsonStr = wUtil.requestContent(AppConstants.WEBSERVICE_URL + "/" + group_id);
         bioInfoList = parseJSONString(jsonStr);
@@ -89,32 +90,34 @@ public class QRResultActivity extends AppCompatActivity {
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.receive:
-                        // Calls getSelectedIds method from ListViewAdapter Class
-                        SparseBooleanArray selected = listviewadapter.getSelectedIds();
-                        WebserviceUtil wUtil = new WebserviceUtil();
-
-                        int receivedId = 0;
-                        // Captures all selected ids with a loop
-                        for (int i = (selected.size() - 1); i >= 0; i--) {
-                            if (selected.valueAt(i)) {
-                                BioMaterialTransferDetail selecteditem = listviewadapter.getItem(selected.keyAt(i));
-                                // Remove selected items following the ids
-                                receivedId = selecteditem.getAcc_biomaterial_transfer_id();
-                                String responseReceive = wUtil.requestContentPut("http://10.9.138.169:8080/ENSAT_WS/api/accbiomaterialaliquotstransfer" + "/" + receivedId);
-                                listviewadapter.remove(selecteditem);
-                            }
-                        }
-                        // Close CAB
-                        showDialog("Material Received", "Bio Materials Successfully Received", QRResultActivity.this);
-                        mode.finish();
-                        return true;
 
                     case R.id.selectAll:
-
                         onClickSelectAll();
                         mode.finish();
                         return true;
+
+
+                    case R.id.receive:
+                        updateMaterialStatusWebServiceCall(AppConstants.STATUS_RECEIVED);
+                        // Close CAB
+                        showDialog("Material Received", "Bio Materials Successfully 'RECEIVED'", QRResultActivity.this);
+                        mode.finish();
+                        return true;
+
+                    case R.id.not_receive:
+                        updateMaterialStatusWebServiceCall(AppConstants.STATUS_NOT_RECEIVED);
+                        // Close CAB
+                        showDialog("Material Received", "Bio Materials' status updated as 'NOT_RECEIVED'", QRResultActivity.this);
+                        mode.finish();
+                        return true;
+
+                    case R.id.damage:
+                        updateMaterialStatusWebServiceCall(AppConstants.STATUS_DAMAGED);
+                        // Close CAB
+                        showDialog("Material Received", "Bio Materials' status updated as 'DAMAGED'", QRResultActivity.this);
+                        mode.finish();
+                        return true;
+
                     default:
                         return false;
                 }
@@ -138,6 +141,26 @@ public class QRResultActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    // This method is used to update the biomaterial samples' status by calling webservice method
+    public void updateMaterialStatusWebServiceCall(String status)
+    {
+        // Calls getSelectedIds method from ListViewAdapter Class
+        SparseBooleanArray selected = listviewadapter.getSelectedIds();
+        WebserviceUtil wUtil = new WebserviceUtil();
+
+        int receivedId = 0;
+        // Captures all selected ids with a loop
+        for (int i = (selected.size() - 1); i >= 0; i--) {
+            if (selected.valueAt(i)) {
+                BioMaterialTransferDetail selecteditem = listviewadapter.getItem(selected.keyAt(i));
+                // Remove selected items following the ids
+                receivedId = selecteditem.getAcc_biomaterial_transfer_id();
+                String responseReceive = wUtil.requestContent(AppConstants.WEBSERVICE_URL + "/" + receivedId + "/" + status);
+                listviewadapter.remove(selecteditem);
+            }
+        }
     }
 
     public void onClickSelectAll()

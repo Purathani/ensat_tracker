@@ -4,13 +4,18 @@
     tools:context="ensat.unimelb.ensat_mobile_app.QRResultActivity">
 
     <item
-        android:id="@+id/receive"
-        android:title="Receive"/>
-
-    <item
         android:id="@+id/selectAll"
         android:title="Select All"/>
 
+    <item
+        android:id="@+id/receive"
+        android:title="@string/receive"/>
+    <item
+        android:id="@+id/not_receive"
+        android:title="@string/notreceive"/>
+    <item
+        android:id="@+id/damage"
+        android:title="@string/damage"/>
     <item
         android:id="@+id/goHome"
         android:title="Back"/>

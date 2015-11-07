@@ -1,7 +1,7 @@
 package ensat.unimelb.ensat_mobile_app.data;
 
 /**
- * Created by purat on 28/09/2015.
+ * Created by purathani on 28/09/2015.
  */
 public class BioMaterialInfoTransfer {
 

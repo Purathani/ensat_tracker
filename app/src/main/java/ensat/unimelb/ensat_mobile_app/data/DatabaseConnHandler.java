@@ -6,7 +6,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 /**
- * Created by Praitheesh on 26/09/2015.
+ * Created by Purathani on 26/09/2015.
  */
 public class DatabaseConnHandler {
     private static final String url = "jdbc:mysql://<server>:<port>/<database>";

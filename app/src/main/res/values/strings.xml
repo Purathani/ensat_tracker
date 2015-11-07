@@ -45,6 +45,9 @@
     <string name="lblSigned">"Signed By: "</string>
     <string name="lblWeight">"Weight: "</string>
     <string name="btnClear">" CLEAR "</string>
+    <string name="receive">"Received"</string>
+    <string name="notreceive">"Not-Received"</string>
+    <string name="damage">"Damaged"</string>
 
 
     <string-array name="carrier_array">

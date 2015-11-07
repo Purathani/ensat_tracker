@@ -3,7 +3,7 @@ package ensat.unimelb.ensat_mobile_app.data;
 import java.util.Date;
 
 /**
- * Created by purat on 8/10/2015.
+ * Created by purathani on 8/10/2015.
  */
 public class BioMaterialTransferDetail {
     private int ensat_id;
