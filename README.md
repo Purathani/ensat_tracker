@@ -3,9 +3,13 @@
 System Requirements
 ================================================
 Android Studio 1.3 or later version
+
 Android smart phone version 4 or later
+
 Android sdk version 22
+
 Java jdk 1.7 or later
+
 External Libraries: gson-2.2.4.jar, easypost-java-2.1.4.jar
 
 
